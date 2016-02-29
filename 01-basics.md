@@ -2,7 +2,7 @@
 layout: page
 title: Testing
 subtitle: Basics of Testing
-minutes: 5
+minutes: 10
 ---
 > ## Learning Objectives {.objectives}
 >
