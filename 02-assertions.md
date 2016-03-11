@@ -107,3 +107,10 @@ These assertions give much more helpful error messages and have much more
 powerful features than the simple assert keyword. An even more powerful sibling 
 of the assertion is the _exception_. We'll learn about those in the next 
 lesson.
+
+## More Practice
+
+We'll use the Jelly Bean Code to look a little bit more at asserts and testing
+code:
+[https://github.com/rachelslaybaugh/JellyBeanCode](https://github.com/rachelslaybaugh/JellyBeanCode)
+
