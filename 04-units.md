@@ -16,7 +16,7 @@ Unit tests are so called because they exercise the functionality of the code by
 interrogating individual functions and methods. Fuctions and methods can often
 be considered the atomic units of software because they are indivisble.
 However, what is considered to be the smallest code _unit_ is subjective. The
-body of a function can be long are short, and shorter functions are arguably
+body of a function can be long or short, and shorter functions are arguably
 more unit-like than long ones.
 
 Thus what reasonably constitutes a code unit typically varies from project to
