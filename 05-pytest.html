@@ -27,56 +27,24 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
                     <a href="index.html"><h1 class="title">Testing</h1></a>
-          <h2 class="subtitle">Unit Tests</h2>
+          <h2 class="subtitle">Running Tests with pytest</h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
 <h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
-<li>Understand that functions are the atomistic unit of software.</li>
-<li>Understand that simpler units are easier to test than complex ones.</li>
-<li>Understand how to write a single unit test.</li>
-<li>Understand how to run a single unit test.</li>
-<li>Understand how test fixtures can help write tests.</li>
+<li>Understand how to run a test suite using the pytest framework</li>
+<li>Understand how to read the output of a pytest test suite</li>
 </ul>
 </div>
 </section>
-<p>Unit tests are so called because they exercise the functionality of the code by interrogating individual functions and methods. Functions and methods can often be considered the atomic units of software because they are indivisible. However, what is considered to be the smallest code <em>unit</em> is subjective. The body of a function can be long are short, and shorter functions are arguably more unit-like than long ones.</p>
-<p>Thus what reasonably constitutes a code unit typically varies from project to project and language to language. A good guideline is that if the code cannot be made any simpler logically (you cannot split apart the addition operator) or practically (a function is self-contained and well defined), then it is a unit.</p>
-<aside class="callout panel panel-info">
-<div class="panel-heading">
-<h2 id="functions-are-like-paragraphs"><span class="glyphicon glyphicon-pushpin"></span>Functions are Like Paragraphs</h2>
-</div>
-<div class="panel-body">
-<p>Recall that humans can only hold a few ideas in our heads at once. Paragraphs in books, for example, become unwieldy after a few lines. Functions, generally, shouldn’t be longer than paragraphs. Robert C. Martin, the author of “Clean Code” said : “The first rule of functions is that <em>they should be small</em>. The second rule of functions is that <em>they should be smaller than that</em>.”</p>
-</div>
-</aside>
-<p>The desire to unit test code often has the effect of encouraging both the code and the tests to be as small, well-defined, and modular as possible.<br />
-In Python, unit tests typically take the form of test functions that call and make assertions about methods and functions in the code base. To run these test functions, a test framework is often required to collect them together. For now, we’ll write some tests for the mean function and simply run them individually to see whether they fail. In the next session, we’ll use a test framework to collect and run them.</p>
-<h2 id="unit-tests-are-just-functions">Unit Tests Are Just Functions</h2>
-<p>Unit tests are typically made of three pieces, some set-up, a number of assertions, and some tear-down. Set-up can be as simple as initializing the input values or as complex as creating and initializing concrete instances of a class. Ultimately, the test occurs when an assertion is made, comparing the observed and expected values. For example, let us test that our mean function successfully calculates the known value for a simple list.</p>
+<p>We created a suite of tests for our mean function, but it was annoying to run them one at a time. It would be a lot better if there were some way to run them all at once, just reporting which tests fail and which succeed.</p>
+<p>Thankfully, that exists. Recall our tests:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> mean <span class="im">import</span> <span class="op">*</span>
 
 <span class="kw">def</span> test_ints():
-    num_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
-    obs <span class="op">=</span> mean(num_list)
-    exp <span class="op">=</span> <span class="dv">3</span>
-    <span class="cf">assert</span> obs <span class="op">==</span> exp</code></pre></div>
-<p>The test above: - sets up the input parameters (the simple list [1, 2, 3, 4, 5]. - collects the observed result - declares the expected result (calculated with our human brain). - and compares the two with an assertion.</p>
-<p>A unit test suite is made up of many tests just like this one. A single implemented function may be tested in numerous ways.</p>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2 id="write-a-file-full-of-tests"><span class="glyphicon glyphicon-pencil"></span>Write a File Full of Tests</h2>
-</div>
-<div class="panel-body">
-<ol style="list-style-type: decimal">
-<li>In a file called <code>test_mean.py</code>, implement the following code:</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> mean <span class="im">import</span> <span class="op">*</span>
-
-<span class="kw">def</span> test_ints():
-    num_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
+    num_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
     obs <span class="op">=</span> mean(num_list)
     exp <span class="op">=</span> <span class="dv">3</span>
     <span class="cf">assert</span> obs <span class="op">==</span> exp
@@ -107,12 +75,42 @@ In Python, unit tests typically take the form of test functions that call and ma
     obs <span class="op">=</span> mean(num_list)
     exp <span class="op">=</span> <span class="va">NotImplemented</span>
     <span class="cf">assert</span> obs <span class="op">==</span> exp</code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Use IPython to import the test_mean package and run each test.</li>
-</ol>
+<p>Once these tests are written in a file called <code>test_mean.py</code>, the command <code>py.test</code> can be called from the directory containing the tests:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">py.test</span></code></pre></div>
+<pre class="output"><code>collected 5 items
+
+test_mean.py ....F
+
+================================== FAILURES ===================================
+________________________________ test_complex _________________________________
+
+    def test_complex():
+        # given that complex numbers are an unordered field
+        # the arithmetic mean of complex numbers is meaningless
+        num_list = [2 + 3j, 3 + 4j, -32 - 2j]
+        obs = mean(num_list)
+        exp = NotImplemented
+&gt;       assert obs == exp
+E       assert (-9+1.6666666666666667j) == NotImplemented
+
+test_mean.py:34: AssertionError
+===================== 1 failed, 4 passed in 2.71 seconds ======================</code></pre>
+<p>In the above case, the pytest package ‘sniffed-out’ the tests in the directory and ran them together to produce a report of the sum of the files and functions matching the regular expression <code>[Tt]est[-_]*</code>.</p>
+<p>The major boon a testing framework provides is exactly that, a utility to find and run the tests automatically. With pytest, this is the command-line tool called <code>py.test</code>. When <code>py.test</code> is run, it will search all directories below where it was called, find all of the Python files in these directories whose names start or end with <code>test</code>, import them, and run all of the functions and classes whose names start with <code>test</code> or <code>Test</code>. This automatic registration of test code saves tons of human time and allows us to focus on what is important: writing more tests.</p>
+<p>When you run <code>py.test</code>, it will print a dot (<code>.</code>) on the screen for every test that passes, an <code>F</code> for every test that fails or where there was an unexpected error. In rarer situations you may also see an <code>s</code> indicating a skipped tests (because the test is not applicable on your system) or a <code>x</code> for a known failure (because the developers could not fix it promptly). After the dots, pytest will print summary information.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="fix-the-failing-code"><span class="glyphicon glyphicon-pencil"></span>Fix The Failing Code</h2>
+</div>
+<div class="panel-body">
+<p>Without changing the tests, alter the mean.py file from the previous section until it passes. When it passes, <code>py.test</code> will produce results like the following:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">py.test</span></code></pre></div>
+<p><sub>~</sub> {.output} collected 5 items</p>
+<p>test_mean.py …..</p>
+<p>========================== 5 passed in 2.68 seconds ===========================</p>
 </div>
 </section>
-<p>Well, <strong>that</strong> was tedious.</p>
+<p>As we write more code, we would write more tests, and pytest would produce more dots. Each passing test is a small, satisfying reward for having written quality scientific software. Now that you know how to write tests, let’s go into what can go wrong.</p>
         </div>
       </div>
       </article>
