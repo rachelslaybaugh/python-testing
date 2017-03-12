@@ -31,7 +31,7 @@ title: Testing
 
 Before relying on a new experimental device, an experimental scientist always
 establishes its accuracy. A new detector is calibrated when the scientist
-observes its responses to to known input signals. The results of this
+observes its responses to known input signals. The results of this
 calibration are compared against the _expected_ response. **An experimental
 scientist would never conduct an experiment with uncalibrated detectors - the
 that would be unscientific. So too, simulations and analysis with untested
@@ -61,10 +61,10 @@ capabilities and when its tests do not pass.
 > when you evaluate the acceptability of your own or someone else's software.
 
 In most other programming endeavors, if code is fundamentally wrong
-- even for years at a time - the impact of this error can be relatively small.
+--even for years at a time--the impact of this error can be relatively small.
 Perhaps a website goes down, or a game crashes, or a days worth of writing is
 lost to a bug in your word processor. Scientific code, on the other hand,
-controls planes, weapons systems, satellites, agriculture, and most importantly
+controls planes, weapons systems, satellites, agriculture, and 
 scientific simulations and experiments. If the software that governs the
 computational or physical experiment is wrong, then disasters (such as false
 claims in a publication) will result.
