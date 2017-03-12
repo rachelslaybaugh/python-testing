@@ -46,7 +46,8 @@
       <span class="kw">raise</span> <span class="ot">Exception</span>(<span class="st">&quot;The algebraic mean of an empty list is undefined. Please provide a list of numbers&quot;</span>)
     <span class="kw">else</span> :
       <span class="kw">return</span> <span class="dt">sum</span>(num_list)/<span class="dt">len</span>(num_list)</code></pre>
-<p>Once an exception is raised, it will be passed upward in the program scope. An exception be used to trigger additional error messages or an alternative behavior. rather than immediately halting code execution, the exception can be ‘caught’ upstream with a try-except block. When wrapped in a try-except block, the exception can be intercepted before it reaches global scope and halts execution.</p>
+<p>Once an exception is raised, it will be passed upward in the program scope.
+An exception can be used to trigger additional error messages or an alternative behavior. Rather than immediately halting code execution, the exception can be ‘caught’ upstream with a try-except block. When wrapped in a try-except block, the exception can be intercepted before it reaches global scope and halts execution.</p>
 <p>To add information or replace the message before it is passed upstream, the try-catch block can be used to catch-and-reraise the exception:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> mean(num_list):
     <span class="kw">try</span>:
