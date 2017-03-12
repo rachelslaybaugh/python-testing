@@ -44,13 +44,13 @@ line of code. The disadvantage is that assertions halt execution
 indiscriminately and the helpfulness of the resulting error message is usually
 quite limited.
 
-Also, input checking may require decending a rabbit hole of exceptional cases.
+Also, input checking may require decending into a rabbit hole of exceptional cases.
 What happens when the input provided to the mean function is a string, rather
 than a list of numbers?
 
 > ## Insert an Assertion {.challenge}
 >
-> 1. Open an IPython Notebook
+> 1. Open a Jupyter Notebook
 > 2. Create the following function:
 >
 > ~~~ {.python}
@@ -74,7 +74,7 @@ arise with floating point arithmetic.
 > that arise with floating point arithmetic. Using the assert keyword, how could
 > you test whether some value is almost the same as another value?
 >
-> - My package, mynum, provides the number a.
+> - My package, `mynum`, provides the number a.
 > - Use the `assert` keyword to check whether the number a is greater than 2.
 > - Use the `assert` keyword to check that a is equal to 2 within an error of 0.003.
 >

@@ -52,14 +52,14 @@
     <span class="cf">assert</span> <span class="bu">len</span>(num_list) <span class="op">!=</span> <span class="dv">0</span>
     <span class="cf">return</span> <span class="bu">sum</span>(num_list)<span class="op">/</span><span class="bu">len</span>(num_list)</code></pre></div>
 <p>The advantage of assertions is their ease of use. They are rarely more than one line of code. The disadvantage is that assertions halt execution indiscriminately and the helpfulness of the resulting error message is usually quite limited.</p>
-<p>Also, input checking may require decending a rabbit hole of exceptional cases. What happens when the input provided to the mean function is a string, rather than a list of numbers?</p>
+<p>Also, input checking may require decending into a rabbit hole of exceptional cases. What happens when the input provided to the mean function is a string, rather than a list of numbers?</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2 id="insert-an-assertion"><span class="glyphicon glyphicon-pencil"></span>Insert an Assertion</h2>
 </div>
 <div class="panel-body">
 <ol style="list-style-type: decimal">
-<li>Open an IPython Notebook</li>
+<li>Open a Jupyter Notebook</li>
 <li>Create the following function:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> mean(num_list):
@@ -78,7 +78,7 @@
 <div class="panel-body">
 <p>Assertions are also helpful for catching abnormal behaviors, such as those that arise with floating point arithmetic. Using the assert keyword, how could you test whether some value is almost the same as another value?</p>
 <ul>
-<li>My package, mynum, provides the number a.</li>
+<li>My package, <code>mynum</code>, provides the number a.</li>
 <li>Use the <code>assert</code> keyword to check whether the number a is greater than 2.</li>
 <li>Use the <code>assert</code> keyword to check that a is equal to 2 within an error of 0.003.</li>
 </ul>
