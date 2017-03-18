@@ -87,22 +87,14 @@
 <span class="co"># 0.003 assertion here</span></code></pre></div>
 </div>
 </section>
-<p>To help with situations such as those above, there are classes of more helpful assertions that we will use often in later parts of this testing lesson as the building blocks of our tests. The nose testing package contains many of them.</p>
-<h2 id="nose">Nose</h2>
-<p>The nose testing framework has built-in assertion types implementing <code>assert_almost_equal</code>, <code>assert_true</code>, <code>assert_false</code>, <code>assert_raises</code>, <code>assert_is_instance</code>, and others.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> nose.tools <span class="ch">import</span> assert_almost_equal
-<span class="ch">from</span> mynum <span class="ch">import</span> a
-assert_almost_equal(a, <span class="dv">2</span>, places=<span class="dv">2</span>)
-assert_almost_equal(a, <span class="dv">2</span>, delta=<span class="fl">0.003</span>)</code></pre>
-<p>These assertions give much more helpful error messages and have much more powerful features than the simple assert keyword. An even more powerful sibling of the assertion is the <em>exception</em>. We’ll learn about those in the next lesson.</p>
-<h2 id="more-practice">More Practice</h2>
-<p>We’ll use the Jelly Bean Code to look a little bit more at asserts and testing code: <a href="https://github.com/rachelslaybaugh/JellyBeanCode">https://github.com/rachelslaybaugh/JellyBeanCode</a></p>
-
 <h2 id="numpy">NumPy</h2>
 <p>The NumPy numerical computing library has a built-in function <code>assert_allclose</code> for comparing numbers within a tolerance:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> numpy.testing <span class="im">import</span> assert_allclose
 <span class="im">from</span> mynum <span class="im">import</span> a
 assert_allclose(a, <span class="dv">2</span>, atol<span class="op">=</span><span class="fl">0.003</span>, rtol<span class="op">=</span><span class="dv">0</span>)</code></pre></div>
+<p>These assertions give much more helpful error messages and have much more powerful features than the simple assert keyword. An even more powerful sibling of the assertion is the <em>exception</em>. We’ll learn about those in the next lesson.</p>
+<h2 id="more-practice">More Practice</h2>
+<p>We’ll use the Jelly Bean Code to look a little bit more at asserts and testing code: <a href="https://github.com/rachelslaybaugh/JellyBeanCode" class="uri">https://github.com/rachelslaybaugh/JellyBeanCode</a></p>
         </div>
       </div>
       </article>
